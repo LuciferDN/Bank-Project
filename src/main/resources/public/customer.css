@@ -1,0 +1,23 @@
+body {
+    display: flex;
+    align-items: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.header{
+    display: flex;
+}
+
+.header h1{
+    flex-grow: 1;
+}
+
+.header button{
+    margin-top: 5px;
+    margin-left: 20px;
+}
+
+.container{
+    background-color: bisque;
+}

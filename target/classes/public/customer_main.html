@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Customer Main Page</title>
+        <link href="customer.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    </head>
+
+
+    <body>
+        <div class="container">
+            <div class="header">
+                <h1>Account Infomation</h1>
+                <form action="logout" method="GET">
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Logout</button>
+                    </div>
+                </form>
+            </div>
+
+            <br>
+            <br>
+            <br>
+            
+            <table class="table" id="customer-table" onclick="click">
+                <thead>
+                    <tr>
+                        <th scope="col">Account Name</th>
+                        <th scope="col">Approval Status</th>
+                        <th scope="col">Balance</th>
+                    </tr>
+                </thead>
+            </table>
+
+            
+            <div class="bd-example">
+                <nav>
+                    <div class="nav nav-tabs mb-3" id="nav-tab" role="tablist">
+                    <button class="nav-link active" id="nav-apply-tab" data-bs-toggle="tab" data-bs-target="#nav-apply" type="button" role="tab" aria-controls="nav-apply" aria-selected="true">Apply New Account</button>
+                    <button class="nav-link" id="nav-deposit-tab" data-bs-toggle="tab" data-bs-target="#nav-deposit" type="button" role="tab" aria-controls="nav-deposit" aria-selected="false">Deposit</button>
+                    <button class="nav-link" id="nav-withdraw-tab" data-bs-toggle="tab" data-bs-target="#nav-withdraw" type="button" role="tab" aria-controls="nav-withdraw" aria-selected="false">WithDraw</button>
+                    <button class="nav-link" id="nav-transfer-tab" data-bs-toggle="tab" data-bs-target="#nav-transfer" type="button" role="tab" aria-controls="nav-transfer" aria-selected="false">Transfer</button>
+                    <button class="nav-link" id="nav-receive-tab" data-bs-toggle="tab" data-bs-target="#nav-receive" type="button" role="tab" aria-controls="nav-receive" aria-selected="false">Receive</button>
+                    </div>
+                </nav>
+
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="nav-apply" role="tabpanel" aria-labelledby="nav-apply-tab">
+                        <div id="apply">
+                            <form action="apply_account" method="POST">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Account Name" name = "account_name">
+                                    <input type="number" class="form-control" placeholder="Initial Deposit Ammount" name = "initial_amount">
+                                    <button type="submit" class="btn btn-primary">Apply New Account</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="nav-deposit" role="tabpanel" aria-labelledby="nav-deposit-tab">
+                        <div id="deposit">
+                            <form action="deposit" method="POST">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Account Name" name = "account_name">
+                                    <input type="number" class="form-control" placeholder="Deposit Ammount" name = "deposit_amount">
+                                    <button id="deposit_button" type="submit" class="btn btn-primary">Deposit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="nav-withdraw" role="tabpanel" aria-labelledby="nav-withdraw-tab">
+                        <div id="withdraw">
+                            <form action="withdraw" method="POST">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Account Name" name = "account_name">
+                                    <input type="number" class="form-control" placeholder="Withdraw Ammount" name = "withdraw_amount">
+                                    <button id="withdraw_button" type="submit" class="btn btn-primary">Withdraw</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="nav-transfer" role="tabpanel" aria-labelledby="nav-transfer-tab">
+                        <div id="transfer">
+                            <form action="transfer" method="POST">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Account Name" name = "account_name">
+                                    <input type="text" class="form-control" placeholder="Username of Other Party" name = "otherparty_username">
+                                    <input type="text" class="form-control" placeholder="Account Name of Other Party" name = "otherparty_account_name">
+                                    <input type="number" class="form-control" placeholder="Transfer Ammount" name = "transfer_amount">
+                                    <button id="transfer_button" type="submit" class="btn btn-primary">Transfer</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-pane fade" id="nav-receive" role="tabpanel" aria-labelledby="nav-receive-tab">
+                        <div id="receive">
+                            <form action="receive" method="POST">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Account Name" name = "account_name">
+                                    <input type="text" class="form-control" placeholder="Username of Other Party" name = "otherparty_username">
+                                    <input type="text" class="form-control" placeholder="Account Name of Other Party" name = "otherparty_account_name">
+                                    <input type="number" class="form-control" placeholder="Receive Ammount" name = "receive_amount">
+                                    <button id="receive_button" type="submit" class="btn btn-primary">Receive</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <script src="customer-main.js"></script>
+    </body>
+</html>
